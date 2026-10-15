@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>BMI Calculator - SmartCalc</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+<h1>BMI Calculator</h1>
+</header>
+
+<div class="card">
+
+<label>Weight (kg)</label>
+<input id="weight" type="number">
+
+<label>Height (cm)</label>
+<input id="height" type="number">
+
+<button onclick="bmi()">Calculate</button>
+
+<h2 id="answer"></h2>
+
+</div>
+
+
+<script>
+function bmi(){
+
+let w=document.getElementById("weight").value;
+let h=document.getElementById("height").value/100;
+
+let result=w/(h*h);
+
+document.getElementById("answer").innerHTML=
+"BMI: "+result.toFixed(1);
+
+}
+</script>
+
+</body>
+</html>
