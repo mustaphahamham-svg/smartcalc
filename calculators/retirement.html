@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Retirement Calculator - SmartCalc</title>
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>Retirement Calculator</h1>
+<p>Estimate your retirement savings</p>
+
+</header>
+
+
+
+<div class="card">
+
+
+<label>Current Age</label>
+<input id="age" type="number" value="30">
+
+
+
+<label>Retirement Age</label>
+<input id="retireAge" type="number" value="65">
+
+
+
+<label>Current Savings ($)</label>
+<input id="savings" type="number" value="10000">
+
+
+
+<label>Monthly Contribution ($)</label>
+<input id="monthly" type="number" value="200">
+
+
+
+<label>Annual Return (%)</label>
+<input id="rate" type="number" value="7">
+
+
+
+<button onclick="calculateRetirement()">
+Calculate
+</button>
+
+
+
+<h2 id="result"></h2>
+
+
+</div>
+
+
+
+<script>
+
+function calculateRetirement(){
+
+let age = Number(document.getElementById("age").value);
+
+let retireAge = Number(document.getElementById("retireAge").value);
+
+let savings = Number(document.getElementById("savings").value);
+
+let monthly = Number(document.getElementById("monthly").value);
+
+let rate = Number(document.getElementById("rate").value) / 100 / 12;
+
+
+let months = (retireAge - age) * 12;
+
+
+let future = savings * Math.pow(1 + rate, months)
++
+monthly * ((Math.pow(1 + rate, months)-1)/rate);
+
+
+
+document.getElementById("result").innerHTML =
+"Estimated Retirement Savings: $" + future.toFixed(2);
+
+}
+
+</script>
+
+
+</body>
+
+</html>
