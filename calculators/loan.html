@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Loan Calculator - SmartCalc</title>
+
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+<h1>Loan Calculator</h1>
+<p>Calculate your monthly loan payment</p>
+</header>
+
+
+<div class="card">
+
+<label>Loan Amount ($)</label>
+<input id="amount" type="number" value="10000">
+
+
+<label>Interest Rate (%)</label>
+<input id="interest" type="number" value="5">
+
+
+<label>Loan Term (Years)</label>
+<input id="term" type="number" value="5">
+
+
+<button onclick="calculateLoan()">
+Calculate
+</button>
+
+
+<h2 id="result"></h2>
+
+</div>
+
+
+<script>
+
+function calculateLoan(){
+
+let amount = Number(document.getElementById("amount").value);
+
+let interest = Number(document.getElementById("interest").value) / 100 / 12;
+
+let months = Number(document.getElementById("term").value) * 12;
+
+
+let payment = amount *
+(interest * Math.pow(1 + interest, months)) /
+(Math.pow(1 + interest, months) - 1);
+
+
+document.getElementById("result").innerHTML =
+"Monthly Payment: $" + payment.toFixed(2);
+
+}
+
+</script>
+
+
+</body>
+</html>
