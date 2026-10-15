@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ROI Calculator - SmartCalc</title>
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>ROI Calculator</h1>
+<p>Calculate your return on investment</p>
+
+</header>
+
+
+
+<div class="card">
+
+
+<label>Initial Investment ($)</label>
+<input id="initial" type="number" value="1000">
+
+
+
+<label>Final Value ($)</label>
+<input id="final" type="number" value="1500">
+
+
+
+<button onclick="calculateROI()">
+Calculate
+</button>
+
+
+
+<h2 id="result"></h2>
+
+
+</div>
+
+
+
+<script>
+
+function calculateROI(){
+
+let initial = Number(document.getElementById("initial").value);
+
+let finalValue = Number(document.getElementById("final").value);
+
+
+let profit = finalValue - initial;
+
+let roi = (profit / initial) * 100;
+
+
+
+document.getElementById("result").innerHTML =
+"Profit: $" + profit.toFixed(2) +
+"<br>ROI: " + roi.toFixed(2) + "%";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
