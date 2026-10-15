@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartCalc - Online Calculators</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>SmartCalc</h1>
+<p>Free Online Calculators</p>
+</header>
+
+<div class="search">
+<input type="text" placeholder="Search calculator...">
+</div>
+
+<section class="categories">
+<h2>Popular Calculators</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Mortgage Calculator</h3>
+
+<label>Home Price ($)</label>
+<input id="price" type="number" value="300000">
+
+<label>Down Payment ($)</label>
+<input id="down" type="number" value="60000">
+
+<label>Interest Rate (%)</label>
+<input id="rate" type="number" value="6">
+
+<label>Loan Term (Years)</label>
+<input id="years" type="number" value="30">
+
+<button onclick="mortgage()">Calculate</button>
+
+<h3 id="result"></h3>
+
+</div>
+
+
+<div class="card">
+<h3>Coming Soon</h3>
+<p>200+ calculators will be added.</p>
+</div>
+
+
+</div>
+</section>
+
+
+<section>
+<h2>Categories</h2>
+
+<div class="cards">
+<div class="card">Finance</div>
+<div class="card">Math</div>
+<div class="card">Health</div>
+<div class="card">Converters</div>
+</div>
+
+</section>
+
+
+<footer>
+<p>© 2026 SmartCalc. All rights reserved.</p>
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
