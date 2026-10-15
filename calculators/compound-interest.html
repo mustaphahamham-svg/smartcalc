@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Compound Interest Calculator - SmartCalc</title>
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>Compound Interest Calculator</h1>
+<p>Calculate your investment growth over time</p>
+
+</header>
+
+
+
+<div class="card">
+
+
+<label>Initial Investment ($)</label>
+<input id="principal" type="number" value="1000">
+
+
+
+<label>Annual Interest Rate (%)</label>
+<input id="rate" type="number" value="5">
+
+
+
+<label>Years</label>
+<input id="years" type="number" value="10">
+
+
+
+<label>Compounds Per Year</label>
+<input id="times" type="number" value="12">
+
+
+
+<button onclick="calculateCompound()">
+Calculate
+</button>
+
+
+
+<h2 id="result"></h2>
+
+
+</div>
+
+
+
+<script>
+
+function calculateCompound(){
+
+let principal = Number(document.getElementById("principal").value);
+
+let rate = Number(document.getElementById("rate").value) / 100;
+
+let years = Number(document.getElementById("years").value);
+
+let times = Number(document.getElementById("times").value);
+
+
+
+let amount = principal * Math.pow(
+(1 + rate / times),
+(times * years)
+);
+
+
+
+let interest = amount - principal;
+
+
+
+document.getElementById("result").innerHTML =
+"Final Amount: $" + amount.toFixed(2) +
+"<br>Interest Earned: $" + interest.toFixed(2);
+
+}
+
+</script>
+
+
+</body>
+
+</html>
