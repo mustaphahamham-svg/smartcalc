@@ -1,42 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>Percentage Calculator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Percentage Calculator - SmartCalc</title>
+
 <link rel="stylesheet" href="../style.css">
 </head>
+
 
 <body>
 
 <header>
 <h1>Percentage Calculator</h1>
+<p>Calculate percentages easily</p>
 </header>
+
 
 <div class="card">
 
+<h2>Find Percentage</h2>
+
 <label>Number</label>
-<input id="num">
+<input id="number" type="number" placeholder="Enter number">
 
-<label>Percentage %</label>
-<input id="per">
 
-<button onclick="calculate()">Calculate</button>
+<label>Percentage (%)</label>
+<input id="percentage" type="number" placeholder="Enter percentage">
 
-<h2 id="res"></h2>
+
+<button onclick="calculatePercentage()">
+Calculate
+</button>
+
+
+<h2 id="result"></h2>
+
 
 </div>
 
 
 <script>
-function calculate(){
 
-let n=document.getElementById("num").value;
-let p=document.getElementById("per").value;
+function calculatePercentage(){
 
-document.getElementById("res").innerHTML=
-(n*p/100);
+let number = document.getElementById("number").value;
+
+let percentage = document.getElementById("percentage").value;
+
+
+let result = (number * percentage) / 100;
+
+
+document.getElementById("result").innerHTML =
+"Result: " + result;
 
 }
+
 </script>
 
+
 </body>
+
 </html>
