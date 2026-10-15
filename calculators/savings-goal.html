@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Savings Goal Calculator - SmartCalc</title>
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>Savings Goal Calculator</h1>
+<p>Calculate how much you need to save each month</p>
+
+</header>
+
+
+
+<div class="card">
+
+
+<label>Goal Amount ($)</label>
+<input id="goal" type="number" value="10000">
+
+
+
+<label>Current Savings ($)</label>
+<input id="current" type="number" value="1000">
+
+
+
+<label>Years to Reach Goal</label>
+<input id="years" type="number" value="5">
+
+
+
+<button onclick="calculateGoal()">
+Calculate
+</button>
+
+
+
+<h2 id="result"></h2>
+
+
+</div>
+
+
+
+<script>
+
+function calculateGoal(){
+
+let goal = Number(document.getElementById("goal").value);
+
+let current = Number(document.getElementById("current").value);
+
+let years = Number(document.getElementById("years").value);
+
+
+
+let needed = goal - current;
+
+let months = years * 12;
+
+
+let monthly = needed / months;
+
+
+
+document.getElementById("result").innerHTML =
+"You need to save: $" + monthly.toFixed(2) + 
+" per month";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
