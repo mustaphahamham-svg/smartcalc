@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Simple Savings Calculator - SmartCalc</title>
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>Simple Savings Calculator</h1>
+<p>Calculate your savings growth</p>
+
+</header>
+
+
+
+<div class="card">
+
+
+<label>Initial Savings ($)</label>
+<input id="initial" type="number" value="1000">
+
+
+<label>Monthly Deposit ($)</label>
+<input id="monthly" type="number" value="100">
+
+
+<label>Interest Rate (%)</label>
+<input id="rate" type="number" value="5">
+
+
+<label>Years</label>
+<input id="years" type="number" value="5">
+
+
+
+<button onclick="calculateSavings()">
+Calculate
+</button>
+
+
+
+<h2 id="result"></h2>
+
+
+</div>
+
+
+
+<script>
+
+function calculateSavings(){
+
+let initial = Number(document.getElementById("initial").value);
+
+let monthly = Number(document.getElementById("monthly").value);
+
+let rate = Number(document.getElementById("rate").value) / 100 / 12;
+
+let months = Number(document.getElementById("years").value) * 12;
+
+
+let total = initial * Math.pow(1 + rate, months)
++
+monthly * ((Math.pow(1 + rate, months) - 1) / rate);
+
+
+
+document.getElementById("result").innerHTML =
+"Total Savings: $" + total.toFixed(2);
+
+}
+
+</script>
+
+
+</body>
+
+</html>
