@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Age Calculator - SmartCalc</title>
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+<h1>Age Calculator</h1>
+<p>Calculate your exact age</p>
+</header>
+
+
+
+<div class="card">
+
+
+<label>Date of Birth</label>
+
+<input id="birthdate" type="date">
+
+
+<button onclick="calculateAge()">
+Calculate
+</button>
+
+
+<h2 id="result"></h2>
+
+
+</div>
+
+
+
+<script>
+
+function calculateAge(){
+
+let birth = new Date(document.getElementById("birthdate").value);
+
+let today = new Date();
+
+
+let years = today.getFullYear() - birth.getFullYear();
+
+let month = today.getMonth() - birth.getMonth();
+
+
+if(month < 0 || (month === 0 && today.getDate() < birth.getDate())){
+years--;
+}
+
+
+document.getElementById("result").innerHTML =
+"Your Age: " + years + " years";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
