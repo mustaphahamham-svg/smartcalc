@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Investment Calculator - SmartCalc</title>
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>Investment Calculator</h1>
+<p>Calculate your investment growth</p>
+
+</header>
+
+
+
+<div class="card">
+
+
+<label>Initial Investment ($)</label>
+<input id="initial" type="number" value="1000">
+
+
+
+<label>Monthly Contribution ($)</label>
+<input id="monthly" type="number" value="100">
+
+
+
+<label>Annual Return (%)</label>
+<input id="returnRate" type="number" value="7">
+
+
+
+<label>Investment Period (Years)</label>
+<input id="years" type="number" value="10">
+
+
+
+<button onclick="calculateInvestment()">
+Calculate
+</button>
+
+
+
+<h2 id="result"></h2>
+
+
+</div>
+
+
+
+
+<script>
+
+function calculateInvestment(){
+
+let initial = Number(document.getElementById("initial").value);
+
+let monthly = Number(document.getElementById("monthly").value);
+
+let rate = Number(document.getElementById("returnRate").value) / 100 / 12;
+
+let months = Number(document.getElementById("years").value) * 12;
+
+
+let future = initial * Math.pow(1 + rate, months)
++
+monthly * ((Math.pow(1 + rate, months) - 1) / rate);
+
+
+
+document.getElementById("result").innerHTML =
+"Future Value: $" + future.toFixed(2);
+
+}
+
+</script>
+
+
+</body>
+
+</html>
