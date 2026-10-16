@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>401k Calculator - SmartCalc</title>
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body>
+
+<header>
+
+<h1>401k Calculator</h1>
+<p>Estimate your retirement account growth</p>
+
+</header>
+
+
+<div class="card">
+
+<label>Current 401k Balance ($)</label>
+<input id="balance" type="number" value="5000">
+
+
+<label>Monthly Contribution ($)</label>
+<input id="monthly" type="number" value="300">
+
+
+<label>Employer Match ($)</label>
+<input id="match" type="number" value="100">
+
+
+<label>Annual Return (%)</label>
+<input id="rate" type="number" value="7">
+
+
+<label>Years Until Retirement</label>
+<input id="years" type="number" value="30">
+
+
+<button onclick="calculate401k()">
+Calculate
+</button>
+
+
+<h2 id="result"></h2>
+
+</div>
+
+
+<script>
+
+function calculate401k(){
+
+let balance = Number(document.getElementById("balance").value);
+
+let monthly = Number(document.getElementById("monthly").value);
+
+let match = Number(document.getElementById("match").value);
+
+let rate = Number(document.getElementById("rate").value) / 100 / 12;
+
+let months = Number(document.getElementById("years").value) * 12;
+
+
+let contribution = monthly + match;
+
+
+let future = balance * Math.pow(1 + rate, months)
++
+contribution * ((Math.pow(1 + rate, months)-1)/rate);
+
+
+
+document.getElementById("result").innerHTML =
+"Estimated 401k Value: $" + future.toFixed(2);
+
+}
+
+</script>
+
+
+</body>
+
+</html>
